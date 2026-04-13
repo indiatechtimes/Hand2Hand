@@ -1,11 +1,14 @@
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
+  final displayName = 'Shopper'.obs;
 
-  final count = 0.obs;
-
-
-
-  void increment() => count.value++;
+  @override
+  void onInit() {
+    final username = Get.arguments;
+    if (username is String && username.trim().isNotEmpty) {
+      displayName.value = username.trim();
+    }
+    super.onInit();
+  }
 }
